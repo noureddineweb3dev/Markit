@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.git
+.cache
+.parcel-cache
+.vite
+coverage
+public/assets
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
