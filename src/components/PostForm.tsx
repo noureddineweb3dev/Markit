@@ -38,7 +38,9 @@ function FormPost({ postsList, setPostsList, isOpen, handleNewPost }) {
             onChange={(e) => setNewPost({ author: newPost.author, content: e.target.value })}
           />
           <div className={classes.actions}>
-            <button type="button" onClick={() => handleNewPost(!isOpen)}>Cancel</button>
+            <button type="button" onClick={() => handleNewPost(!isOpen)}>
+              Cancel
+            </button>
             <button onClick={handleAddPost}>Add Post</button>
           </div>
         </form>

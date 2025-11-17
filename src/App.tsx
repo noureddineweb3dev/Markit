@@ -1,28 +1,33 @@
 import PostsList from './components/PostsList';
 import NewPost from './components/NewPost';
 import PostForm from './components/PostForm';
+import Modal from './components/modal';
 import { useState } from 'react';
+import Header from './components/Header';
 
 function App() {
-  const [postsList, setPostsList] = useState([
-    { author: 'Noureddine', content: 'React.js is awesome!' },
-    { author: 'Assil', content: 'I am Genius' },
-  ]);
+  const [postsList, setPostsList] = useState([]);
   const [newPost, setNewPost] = useState(false);
 
   return (
-    <main>
-      <NewPost isOpen={newPost} handleNewPost={setNewPost} />
-      {newPost && (
-        <PostForm
-          postsList={postsList}
-          setPostsList={setPostsList}
-          isOpen={newPost}
-          handleNewPost={setNewPost}
-        />
-      )}
-      <PostsList postsList={postsList} />
-    </main>
+    <>
+      <Header>
+        <NewPost isOpen={newPost} handleNewPost={setNewPost} />
+      </Header>
+      <main>
+        {newPost && (
+          <Modal>
+            <PostForm
+              postsList={postsList}
+              setPostsList={setPostsList}
+              isOpen={newPost}
+              handleNewPost={setNewPost}
+            />
+          </Modal>
+        )}
+        <PostsList postsList={postsList} />
+      </main>
+    </>
   );
 }
 

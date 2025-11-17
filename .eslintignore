@@ -1,7 +1,0 @@
-node_modules
-dist
-build
-.vite
-.cache
-public/assets
-*.min.js
