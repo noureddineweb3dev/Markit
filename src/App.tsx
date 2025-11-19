@@ -8,6 +8,9 @@ import Header from './components/Header';
 function App() {
   const [postsList, setPostsList] = useState([]);
   const [newPost, setNewPost] = useState(false);
+  function handleCloseForm() {
+    setNewPost(false);
+  }
 
   return (
     <>
@@ -16,7 +19,7 @@ function App() {
       </Header>
       <main>
         {newPost && (
-          <Modal>
+          <Modal onClose={handleCloseForm}>
             <PostForm
               postsList={postsList}
               setPostsList={setPostsList}
@@ -25,7 +28,7 @@ function App() {
             />
           </Modal>
         )}
-        <PostsList postsList={postsList} />
+        <PostsList postsList={postsList} setPostsList={setPostsList} />
       </main>
     </>
   );
